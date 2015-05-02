@@ -37,8 +37,12 @@ $uri_pattern = "/<a href='(.*?)' target='_blank' title='(.*?)'>(.*?)<\/a>/";
 //$uri_pattern = '/a/';
 preg_match_all($uri_pattern, $main_content, $matches);
 //preg_match_all($uri_pattern, $test_content, $matches);
-//print_r($matches[0]);
+print_r($matches[1]);
 //print($main_content);
+
+foreach($matches[1] as $url) {
+    get_detail($url, 'fds');
+}
 
 $detail_url = 'http://www.feeyo.com/vflight/delay/a/HGH_CDG_ZI1907.htm';
 $detail_name = 'ZI1907';

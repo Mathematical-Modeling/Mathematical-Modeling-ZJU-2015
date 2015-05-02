@@ -12,18 +12,14 @@ function get_detail($detail_url, $detail_name) {
     preg_match_all($detail_title_pattern, $detail_content, $detail_title);
     print_r($detail_title);
 
-    $detail_right_pattern = '/<tbody><tr>\n.*?<td.*\n.*<td.*?>(.*)<\/td>.*\n.*.*\n.*.*\n.*.*\n.*.*\n.*.*\n.*.*\n.*<td>(.*?)<\/td>.*\n.*.*\n.*.*\n.*.*\n.*<td>(.*?)<\/td>.*\n.*.*\n.*.*\n.*.*\n.*<td>(.*?)<\/td>.*\n.*.*\n.*.*\n.*.*\n.*<td>(.*?)<\/td>.*\n.*.*\n.*<\/tbody>/';
+    $detail_content = file_get_contents($detail_url);
+    $detail_right_pattern = '/<td>(.*)<\/td>/';
+//    $detail_right_pattern = '/<strong>' . $detail_name . ' (.*?)<\/strong>/';
     preg_match_all($detail_right_pattern, $detail_content, $detail_right);
-    print_r($detail_right);
-
-
-    $detail_half_pattern = '';
-
-    $detail_one_pattern = '';
-
-    $detail_more_pattern = '';
-
-    $detail_cancel_pattern = '';
+    print_r($detail_right[1][2]);
+    print_r($detail_right[1][3]);
+    print_r($detail_right[1][4]);
+    print_r($detail_right[1][5]);
 
 }
 
